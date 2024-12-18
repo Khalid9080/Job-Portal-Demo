@@ -20,8 +20,8 @@ const Navbar = () => {
 
         <NavLink to="/" className="btn btn-ghost">Home</NavLink>
         <NavLink to="/myApplications" className="btn btn-ghost">My Applications</NavLink>
-        <NavLink to="/contact" className="btn btn-ghost">Contact</NavLink>
-        <NavLink to="/services" className="btn btn-ghost">Services</NavLink>
+        <NavLink to="/addjob" className="btn btn-ghost">Add New Job</NavLink>
+        <NavLink to="/myPostedJobs" className="btn btn-ghost">My Posted Jobs</NavLink>
 
 
     </>

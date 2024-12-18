@@ -1,9 +1,8 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CustomHook from '../Hooks/CustomHook';
-import { head } from 'motion/react-client';
 import Swal from 'sweetalert2'
-import { use } from 'react';
+
 
 const JobApply = () => {
     const { id } = useParams();
