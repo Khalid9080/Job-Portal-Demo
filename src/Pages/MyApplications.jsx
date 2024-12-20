@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { use } from 'react';
 import CustomHook from '../Hooks/CustomHook';
+import axios from 'axios';
 
 const MyApplications = () => {
     const { user } = CustomHook();
     const [jobs, setJobs] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/job-application?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => setJobs(data))
-        console.log(jobs);
+        // fetch(`http://localhost:5000/job-application?email=${user.email}`)
+        //     .then(res => res.json())
+        //     .then(data => setJobs(data))
+        // console.log(jobs);
+
+        axios.get(`http://localhost:5000/job-application?email=${user.email}`,
+        {withCredentials: true})
+        .then(res=> setJobs(res.data))
 
     }, [user.email])
 

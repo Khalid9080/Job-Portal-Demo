@@ -3,7 +3,8 @@ import LoginAnimationData from '../assets/Lottie/login_lottie.json';
 import React, { useContext } from 'react';
 import AuthContext from '../Auth/Context/AuthContext';
 import Social_login from './Common/Social_login';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { data, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
     const {loginUser}=useContext(AuthContext)
@@ -21,8 +22,14 @@ const Login = () => {
 
         loginUser(email,password)
         .then(result=>{
-            console.log(result);
-            navigate(from)
+            console.log('Sign In :', result.user.email);  
+            const user={email: email};
+            axios.post('http://localhost:5000/jwt',user, {withCredentials:true})
+            .then(res=>{
+                console.log(res.data);
+               
+            })
+            // navigate(from)
         })
         .catch(error=>{
             console.log(error.message);
